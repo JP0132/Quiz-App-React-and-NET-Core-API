@@ -6,7 +6,7 @@ export default function Authenticate() {
     const {context} = useStateContext()
 
   return (
-    context.particpantId === 0
+    context.particpantId ==! 0
         ? <Navigate to="/" />
         : <Outlet/>
   )
