@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zQWiQe/kuVW8gnw4yaztQgRLmPpI2kJrrdLgoO5mdwOq7pPwxj21/ZI7CyyU2YTxp6eMplN7y6kZW900hxC3bA==",
+  "dgSpecHash": "MCt7jcERSxxri6dBNirCUzfQaRAav5v9cRXwyy2eAnSwVfgzh5UquXt1kR2ycknLRnF+PGmanGQeTCF9aZMCvA==",
   "success": true,
-  "projectFilePath": "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
+  "projectFilePath": "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jaynik Parsotomo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Jaynik Parsotomo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jaynik Parsotomo\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Jaynik Parsotomo\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

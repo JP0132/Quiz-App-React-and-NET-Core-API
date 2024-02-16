@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuizAPI.Models
@@ -27,5 +28,8 @@ namespace QuizAPI.Models
         public string Option4 { get; set; }
 
         public int Answer { get; set; }
+
+        [ForeignKey("CategoryID")]
+        public int CategoryID { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\QuizAPI.csproj": {}
+    "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\QuizAPI.csproj": {}
   },
   "projects": {
-    "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\QuizAPI.csproj": {
+    "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\QuizAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
+        "projectUniqueName": "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
         "projectName": "QuizAPI",
-        "projectPath": "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
+        "projectPath": "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\QuizAPI.csproj",
         "packagesPath": "C:\\Users\\Jaynik Parsotomo\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal Projects\\Coding\\Quiz App with React.js and Net Core API\\QuizAPI\\QuizAPI\\obj\\",
+        "outputPath": "D:\\Personal Projects\\GitHub Repositories\\Quiz-App-React-and-NET-Core-API\\QuizAPI\\QuizAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jaynik Parsotomo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.15, )"

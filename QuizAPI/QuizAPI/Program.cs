@@ -28,6 +28,10 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Images"
 });
 
+
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -39,4 +43,33 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+/*using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var dbContext = services.GetRequiredService<QuizDbContext>();
+
+    *//*SeedData(dbContext);
+}*/
+
 app.Run();
+
+/*static void SeedData(QuizDbContext context)
+{
+    if (!context.Admins.Any())
+    {
+        string admin1Password = "password1";
+        string passwordHash1 = BCrypt.Net.BCrypt.EnhancedHashPassword(admin1Password, 13);
+
+        string admin2Password = "password2";
+        string passwordHash2 = BCrypt.Net.BCrypt.EnhancedHashPassword(admin2Password, 13);
+
+        context.Admins.AddRange(
+            new Admin {Name = "admin1", Email = "admin1@q.com", Password = passwordHash1 },
+            new Admin {Name = "admin2", Email = "admin2@q.com", Password = passwordHash2 }
+        );
+        context.SaveChanges();
+    }
+}*/
+
+

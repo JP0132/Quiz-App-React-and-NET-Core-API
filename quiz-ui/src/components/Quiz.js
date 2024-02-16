@@ -29,8 +29,10 @@ export default function Quiz() {
         selectedOptions: []
       });
 
+    console.log("Caterogy", context.category);
+
     createAPIEndpoint(ENDPOINT.question)
-      .fetch()
+      .fetchQuestions(context.category)
       .then(res=>{
         setQns(res.data)
         startTimer();

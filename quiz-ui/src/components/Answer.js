@@ -12,7 +12,7 @@ export default function Answer({qnsAnswer}) {
 
     const markCorrectOrNot = (qna, index) => {
         if([qna.answer, qna.selected].includes(index)){
-            console.log("hi");
+            //console.log("hi");
             return { sx: { color: qna.answer === index ? green[500] : red[500]}}
         }
     }

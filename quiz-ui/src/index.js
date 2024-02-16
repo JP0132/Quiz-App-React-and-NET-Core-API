@@ -7,11 +7,18 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { ContextProvider } from './hooks/useStateContext';
+import {teal, purple } from '@mui/material/colors';
 
 //Material UI Dark Theme
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: teal[500],
+    },
+    secondary: {
+      main: purple[500],
+    },
   }
 });
 

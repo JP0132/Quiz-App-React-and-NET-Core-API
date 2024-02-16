@@ -90,6 +90,9 @@ namespace QuizAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Participant>> PostParticipant(Participant participant)
         {
+          
+
+
             var temp = _context.Participants
                 .Where(x => x.Name == participant.Name && x.Email == participant.Email).FirstOrDefault();
 

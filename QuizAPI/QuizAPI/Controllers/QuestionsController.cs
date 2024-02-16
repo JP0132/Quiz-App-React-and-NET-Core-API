@@ -20,11 +20,13 @@ namespace QuizAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Questions
+        // GET: api/Questions/{categoryID}
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
+        [Route("GetQuestions/{categoryID}")]
+        public async Task<ActionResult<IEnumerable<Question>>> GetQuestions(int categoryID)
         {
           var randomFiveQuestions = await(_context.Questions
+                .Where(q => q.CategoryID == categoryID)
                 .Select(x => new {
                     QuestionID = x.QuestionID,
                     QuestionName = x.QuestionName,
@@ -36,6 +38,20 @@ namespace QuizAPI.Controllers
                 ).ToListAsync();
                 
             return Ok(randomFiveQuestions);
+        }
+
+        // GET: api/Questions
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Question>>> GetAllQuestions()
+        {
+            if (_context.Questions == null)
+            {
+                return NotFound();
+            }
+
+            var questions = _context.Questions;
+
+            return Ok(questions);
         }
 
         // GET: api/Questions/5
@@ -55,6 +71,25 @@ namespace QuizAPI.Controllers
 
             return question;
         }
+
+        /*[HttpGet]
+        [Route("GetImage/{imageName}")]
+        public async Task<ActionResult<Question>> GetImage(string imageName)
+        {
+            // Construct the full path to the image file
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", imageName);
+
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound(); // Image not found
+            }
+
+            // Read the image file
+            var imageStream = System.IO.File.OpenRead(imagePath);
+
+            // Return the image with the correct content type
+            return File(imageStream, "image/jpg");
+        }*/
 
         // PUT: api/Questions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -108,20 +143,26 @@ namespace QuizAPI.Controllers
             return Ok(answers);
         }
 
-        /*// POST: api/Questions
+        // POST: api/Questions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Route("NewQuestion")]
         public async Task<ActionResult<Question>> PostQuestion(Question question)
         {
           if (_context.Questions == null)
           {
               return Problem("Entity set 'QuizDbContext.Questions'  is null.");
           }
-            _context.Questions.Add(question);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQuestion", new { id = question.QuestionID }, question);
-        }*/
+
+
+           _context.Questions.Add(question);
+           await _context.SaveChangesAsync();
+
+            return Ok(question);
+
+            /*return CreatedAtAction("GetQuestion", new { id = question.QuestionID }, question);*/
+        }
 
         // DELETE: api/Questions/5
         [HttpDelete("{id}")]

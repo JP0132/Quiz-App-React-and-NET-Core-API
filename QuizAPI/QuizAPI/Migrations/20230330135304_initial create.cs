@@ -23,7 +23,7 @@ namespace QuizAPI.Migrations
                 {
                     table.PrimaryKey("PK_Participants", x => x.ParticipantID);
                 });
-
+/*
             migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
@@ -41,7 +41,7 @@ namespace QuizAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.QuestionID);
-                });
+                });*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -49,8 +49,8 @@ namespace QuizAPI.Migrations
             migrationBuilder.DropTable(
                 name: "Participants");
 
-            migrationBuilder.DropTable(
-                name: "Questions");
+           /* migrationBuilder.DropTable(
+                name: "Questions");*/
         }
     }
 }
