@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Quiz Application with C# .NET API and React frontend.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A project where I learnt to create a API using C# .NET, connected to a database which I then used to make fetch calls to from the frontend using the API. The player can play the quiz, with data being pulled from the database. The admin can add questions to the categories, saving them in the database for the player to answer.  
 
-## Available Scripts
+* React Hooks API was used to create the UI.  
+* Material-UI was used to style the UI.  
+* Used context hook to create a custom hook for state management.  
+* Axios was used to make the API calls.   
+* The API was build using C# .NET Core Web API.
+* Created the database tables programmatically, creating model classes and annotating each field with the correct SQL tags.  
+* Create API routes for each diferent data the user might need with GET requests for retrieving, used PUT for editing fields and POST for saving a new record.  
 
-In the project directory, you can run:
+## Requirements  
+- Microsoft SQL Server Management Studio 19 for database  
+- Microsoft Visual Studio for API  
+- Code Editor for React (I used Visual Studio Code) 
+- Compatible browser like Chrome, Firefox and Opera etc.   
 
-### `npm start`
+## Setup  
+Before running the application, connect the database to the API.  
+- Create the database in SSMS 19. 
+- In the appsettings.json file change the DefaultConnection to your server name and database name.  
+- When trying to run the application the first time, it may not work, in that case, remove all migration using Remove-Migration, untill there is none. Then run the command Add-Migration, if no errors, run Update-Database. (Should create the table.)  
+- To add the default data for the admin, uncomment the code in the Program.cs file, and then run the application.  
+- To some data to the database to test the API endpoints, use the sql file called QueryInsertingQuestions.sql, change the database to your db name.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How it works and looks:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## How to run it?
+1. Clone the project or download the all the folders.  
+2. Ensure everything in setup is completed.  
+3. Open the Quiz-UI in your prefered code editor.  
+5. **Delete** the file *package-lock.json* and *node_modules* folder if there.  
+6. Type and enter **npm install**. This should download all the dependencies.  
+7. Open the QuizAPI in Microsoft Visual Studio.  
+8. Run the API, should launch the API in Swagger Docs, which you can use to test the endpoints.  
+9. Check the address of the Swagger doc and ensure that in the Quiz-UI in the api folder the BASE_URL is matching.  
+10. Run the code using the following command:  
+    - For React: **npm start** - This should open automatically in your default browswer at http://localhost:3000/  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
