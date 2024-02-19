@@ -7,10 +7,9 @@ import useStateContext from "../hooks/useStateContext";
 import { useNavigate } from "react-router-dom";
 import { purple, teal } from "@mui/material/colors";
 
-
 export default function Category() {
   const [categories, setCategories] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState(0);
+  const [selectedCategories, setSelectedCategories] = useState("");
   const { context, setContext, resetContext } = useStateContext();
   const navigate = useNavigate();
 
@@ -26,8 +25,6 @@ export default function Category() {
       });
   }, []);
 
-  
-
   // const handleCategoryToggle = (categoryId) => () => {
   //   const currentIndex = selectedCategories.indexOf(categoryId);
   //   const newSelectedCategories = [...selectedCategories];
@@ -41,19 +38,20 @@ export default function Category() {
   //   setSelectedCategories(newSelectedCategories);
   // };
 
-const handleSelectedCategory = (categoryID) => () => {
-  setSelectedCategories(categoryID);
-}
+  const handleSelectedCategory = (categoryID) => () => {
+    setSelectedCategories(categoryID);
+  };
 
   const handleSubmit = () => {
-    setContext({category: selectedCategories})
+    setContext({ category: selectedCategories });
     console.log("Selected Categories:", selectedCategories);
     navigate("/quiz");
-    
   };
 
   return (
-    <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Grid container spacing={3} justifyContent={"center"}>
         {categories.map((category) => (
           <Grid item key={category.categoryID}>
@@ -64,8 +62,12 @@ const handleSelectedCategory = (categoryID) => () => {
                 margin: "10px",
                 textAlign: "center",
                 cursor: "pointer",
-                backgroundColor: selectedCategories === category.categoryID ? purple[500] : "",
-                //backgroundColor: selectedCategories.indexOf(category.categoryID) != -1 ? "blue" : "",
+                "&:hover": {
+                  backgroundColor: purple[500],
+                },
+                backgroundColor:
+                  selectedCategories === category.categoryID ? purple[500] : "",
+                  //backgroundColor: selectedCategories.indexOf(category.categoryID) != -1 ? "blue" : "",
               }}
               variant="outlined"
               onClick={handleSelectedCategory(category.categoryID)}
@@ -79,7 +81,7 @@ const handleSelectedCategory = (categoryID) => () => {
           </Grid>
         ))}
       </Grid>
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button variant="contained" disabled={selectedCategories === "" ? true : false} color="primary" onClick={handleSubmit}>
         Start Quiz
       </Button>
     </div>

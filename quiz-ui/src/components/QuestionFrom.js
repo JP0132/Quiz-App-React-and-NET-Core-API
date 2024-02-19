@@ -24,6 +24,11 @@ const QuestionForm = ({ isOpen, onClose, categories }) => {
     setOptions(newOptions);
   };
 
+  const handleCorrectAnswerChange = (event) => {
+    console.log("Selected Answer:", event.target.value);
+    setCorrectAnswer(event.target.value);
+  };
+
   const handleSubmit = () => {
     if (!handleValidation) {
       alert("Fill in entire form please!");
@@ -55,7 +60,6 @@ const QuestionForm = ({ isOpen, onClose, categories }) => {
     }
     // Handle form submission here, sending data to server)
 
-    //window.location.reload();
   };
 
   const handleValidation = () => {
@@ -126,10 +130,10 @@ const QuestionForm = ({ isOpen, onClose, categories }) => {
           <InputLabel>Correct Answer</InputLabel>
           <Select
             value={correctAnswer}
-            onChange={(e) => setCorrectAnswer(e.target.value - 1)}
+            onChange={handleCorrectAnswerChange}
           >
             {[0, 1, 2, 3].map((index) => (
-              <MenuItem key={index} value={index + 1}>
+              <MenuItem key={index} value={index}>
                 Option {index + 1}
               </MenuItem>
             ))}

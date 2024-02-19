@@ -18,13 +18,22 @@ import {
 import { green, grey, purple } from "@mui/material/colors";
 import QuestionForm from "./QuestionFrom";
 
+//Admin dashboard to view and add questions
 export default function Dashboard() {
+  //State to store all the questions
   const [allQuestions, setAllQuestions] = useState([]);
-  const [allCategories, setAllCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [isCreateQuestionModalOpen, setCreateQuestionModalOpen] =
-    useState(false); // State to control modal visibility
 
+  //State to store all the categories
+  const [allCategories, setAllCategories] = useState([]);
+
+  //Which category the user wants to filter to
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  // State to control modal visibility
+  const [isCreateQuestionModalOpen, setCreateQuestionModalOpen] =
+    useState(false);
+
+  //Get all the data from the API
   useEffect(() => {
     createAPIEndpoint(ENDPOINT.categories)
       .fetchCategories()
@@ -51,6 +60,7 @@ export default function Dashboard() {
     // }
   }, []);
 
+  //Functions to handle all the changes.
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -71,6 +81,7 @@ export default function Dashboard() {
 
   //filter((question) => question.categoryID === selectedCategory.categoryID)
 
+
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div
@@ -87,6 +98,7 @@ export default function Dashboard() {
         >
           Create New Question
         </Button>
+        {/* Select which category the user wants to filter */}
         <Select
           value={selectedCategory}
           onChange={handleCategoryChange}
@@ -109,7 +121,6 @@ export default function Dashboard() {
               margin: "10px",
               textAlign: "center",
               cursor: "pointer",
-
               //backgroundColor: selectedCategories.indexOf(category.categoryID) != -1 ? "blue" : "",
             }}
             key={question.questionID}

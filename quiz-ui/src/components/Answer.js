@@ -4,12 +4,15 @@ import { BASE_URL } from '../api'
 import { green, red } from '@mui/material/colors';
 
 export default function Answer({qnsAnswer}) {
+    // State to track the expanded state of each accordion panel
     const [expanded, setExpanded] = useState(false);
 
+    // Function to handle changes in accordion panel expansion
     const handleChange = (panel) => (e, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     }
 
+    // Function to determine styling for correct/incorrect answers
     const markCorrectOrNot = (qna, index) => {
         if([qna.answer, qna.selected].includes(index)){
             //console.log("hi");
@@ -21,6 +24,7 @@ export default function Answer({qnsAnswer}) {
     
   return (
     <Box sx={{mt: 5, width: '100%', maxWidth: 640, mx: 'auto'}}>
+        {/* Mapping through the provided questions and answers */}
         {
             qnsAnswer.map((question, j) => (<Accordion
                 disableGutters
@@ -35,6 +39,7 @@ export default function Answer({qnsAnswer}) {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
+                    {/* Rendering image if provided */}
                     {question.imageName ?
                         <CardMedia
                             component="img"
@@ -46,8 +51,10 @@ export default function Answer({qnsAnswer}) {
                     <List>
                         {question.options.map((choices, index) =>
                             <ListItem>
+                                {/* Applying styling for correct/incorrect answers */}
                                 <Typography {...markCorrectOrNot(question, index)}>
                                     <b>
+                                        {/* Rendering option label (A, B, C, D) */}
                                         {String.fromCharCode(65 + index) + "."}
                                     </b>{choices}
                                 </Typography>
